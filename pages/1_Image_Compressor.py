@@ -3,6 +3,7 @@ from PIL import Image
 from transform_coding import compress_img, MSE, get_image_size
 import numpy as np
 from io import BytesIO
+import pandas as pd
 
 st.title(':red[Image Compressor]')
 
@@ -49,11 +50,15 @@ if uploaded_file is not None:
             original_size = st.session_state.compressed_results["original_size"]
             compressed_size = st.session_state.compressed_results["compressed_size"]
 
-        # Display compression results
-        st.write(":red[Compression Results: ]")
-        st.text(f"Original Image Size: {original_size:.2f} KB")
-        st.text(f"Compressed Image Size: {compressed_size:.2f} KB")
-        st.text(f"Mean Square Error: {mse_value:.2f}")
+        data = {
+            "Metric": ["Original Image Size (KB)", "Compressed Image Size (KB)", "Mean Square Error"],
+            "Value": [f"{original_size:.2f}", f"{compressed_size:.2f}", f"{mse_value:.2f}"]
+        }
+
+        df = pd.DataFrame(data)
+
+        st.write(":red[Compression Results:]")
+        st.table(df)
 
         col1, col2 = st.columns(2)
 
