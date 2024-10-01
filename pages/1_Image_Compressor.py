@@ -50,39 +50,39 @@ if uploaded_file is not None:
             original_size = st.session_state.compressed_results["original_size"]
             compressed_size = st.session_state.compressed_results["compressed_size"]
 
-        data = {
-            "Metric": ["Original Image Size (KB)", "Compressed Image Size (KB)", "Mean Square Error"],
-            "Value": [f"{original_size:.2f}", f"{compressed_size:.2f}", f"{mse_value:.2f}"]
-        }
+    data = {
+        "Metric": ["Original Image Size (KB)", "Compressed Image Size (KB)", "Mean Square Error"],
+        "Value": [f"{original_size:.2f}", f"{compressed_size:.2f}", f"{mse_value:.2f}"]
+    }
 
-        df = pd.DataFrame(data)
-        st.write(":red[Compression Results:]")
-        st.dataframe(df.style.hide(axis='index'), use_container_width=True)
+    df = pd.DataFrame(data)
+    st.write(":red[Compression Results:]")
+    st.dataframe(df.style.hide(axis='index'), use_container_width=True)
 
-        col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-        with col1:
-            st.image(img, caption="Original Image", use_column_width=True)
-            buf = BytesIO()
-            img.save(buf, format="JPEG")
-            byte_im = buf.getvalue()
-            st.download_button(
-                label="Download Original Image",
-                data=byte_im,
-                file_name="image.jpg",
-                mime="image/jpeg",
-                use_container_width=True
-            )
-            
-        with col2:
-            st.image(comp_img, caption="Compressed Image", use_column_width=True)
-            buf = BytesIO()
-            comp_img.save(buf, format="JPEG")
-            byte_im = buf.getvalue()
-            st.download_button(
-                label="Download Compressed Image",
-                data=byte_im,
-                file_name="compressed_image.jpg",
-                mime="image/jpeg",
-                use_container_width=True
-            )
+    with col1:
+        st.image(img, caption="Original Image", use_column_width=True)
+        buf = BytesIO()
+        img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+        st.download_button(
+            label="Download Original Image",
+            data=byte_im,
+            file_name="image.jpg",
+            mime="image/jpeg",
+            use_container_width=True
+        )
+        
+    with col2:
+        st.image(comp_img, caption="Compressed Image", use_column_width=True)
+        buf = BytesIO()
+        comp_img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+        st.download_button(
+            label="Download Compressed Image",
+            data=byte_im,
+            file_name="compressed_image.jpg",
+            mime="image/jpeg",
+            use_container_width=True
+        )
