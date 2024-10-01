@@ -16,7 +16,7 @@ with col1:
 with col2:
     q_level = st.slider("Select Retained Coefficient (%)", min_value=1, max_value=100, value=1)
 
-compress = st.button("Compress", type='primary', use_container_width=True)
+compress = st.button("Compress", type='primary', use_container_width=True, disabled=(not uploaded_file))
 
 st.divider()
 
