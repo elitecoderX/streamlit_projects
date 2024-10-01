@@ -5,7 +5,7 @@ from utils import add_project
 st.set_page_config(
      page_title="elitecoderX - Home",
      layout="centered",
-     initial_sidebar_state="auto"
+     initial_sidebar_state="collapsed"
  )
 
 st.title(":red[Sachin]")
