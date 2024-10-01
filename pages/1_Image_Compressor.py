@@ -54,13 +54,13 @@ if uploaded_file is not None:
             "Metric": ["Original Image Size (KB)", "Compressed Image Size (KB)", "Mean Square Error"],
             "Value": [f"{original_size:.2f}", f"{compressed_size:.2f}", f"{mse_value:.2f}"]
         }
-
+    
         df = pd.DataFrame(data)
         st.write(":red[Compression Results:]")
         st.dataframe(df.style.hide(axis='index'), use_container_width=True)
-
+    
         col1, col2 = st.columns(2)
-
+    
         with col1:
             st.image(img, caption="Original Image", use_column_width=True)
             buf = BytesIO()
