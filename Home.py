@@ -4,7 +4,7 @@ from utils import add_project
 
 st.set_page_config(
      page_title="elitecoderX - Home",
-     initial_sidebar_state="collapsed"
+     initial_sidebar_state="collapsed",
      layout="centered",
  )
 
