@@ -56,9 +56,8 @@ if uploaded_file is not None:
         }
 
         df = pd.DataFrame(data)
-
         st.write(":red[Compression Results:]")
-        st.table(df)
+        st.dataframe(df.style.hide(axis='index'), use_container_width=True)
 
         col1, col2 = st.columns(2)
 

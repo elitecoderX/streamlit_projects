@@ -1,5 +1,5 @@
 import streamlit as st
-import os
+from utils import add_project
 
 
 st.set_page_config(
@@ -8,7 +8,7 @@ st.set_page_config(
      initial_sidebar_state="auto"
  )
 
-st.title(":red[Sachin Prajapati]")
+st.title(":red[Sachin]")
 
 st.write("""
 **Email:** [sachinprajapati09890@gmail.com](mailto:sachinprajapati09890@gmail.com)  
@@ -16,16 +16,15 @@ st.write("""
 **GitHub:** [github.com/elitecoderX](https://github.com/elitecoderX)
 """)
 
-st.write("""
-I am a Master’s student in Computer Science at Dayalbagh Educational Institute, specializing in machine learning and web development.
-With expertise in Python, TensorFlow, OpenCV, and Streamlit, I am passionate about AI-driven solutions and aim to contribute impactful research to the field of artificial intelligence.
-""")
+st.write("I hold a Bachelor of Science degree in Computer Science from Dayalbagh Educational Institute and am currently pursuing a Master’s degree in Computer Science.")
+st.write("This repository showcases a collection of my projects, all deployed on Streamlit.")
 
 st.divider()
 st.header(':red[Projects]')
 
-with st.container(border=True):
-    st.write(':red[Image Compressor]')
-    st.write('This project implements image compression using DCT and DFT, transforming image patches to the frequency domain, applying quantization, and retaining key coefficients to balance between image quality and file size.')
-    if st.button('Try now 🚀', type='secondary'):
-        st.switch_page(os.path.join('pages','1_Image_Compressor.py'))
+add_project(
+    title="Image Compressor",
+    description="This project implements image compression using DCT and DFT, transforming image patches to the frequency domain, applying quantization, and retaining key coefficients to balance between image quality and file size.",
+    button1_page="1_Image_Compressor.py",
+    button2_url=None
+)
